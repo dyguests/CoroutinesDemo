@@ -1,11 +1,10 @@
 package com.fanhl.coroutines.ui
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import com.fanhl.coroutines.R
 import kotlinx.android.synthetic.main.activity_compute.*
 import kotlinx.coroutines.experimental.android.UI
-import kotlinx.coroutines.experimental.delay
 import kotlinx.coroutines.experimental.launch
 import org.jetbrains.anko.coroutines.experimental.bg
 import org.jetbrains.anko.toast
