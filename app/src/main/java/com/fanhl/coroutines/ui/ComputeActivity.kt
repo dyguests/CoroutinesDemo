@@ -21,19 +21,20 @@ class ComputeActivity : AppCompatActivity() {
                 toast("start")
 
                 val x = bg {
-                    Thread.sleep(2000)
+                    Thread.sleep(1000)
                     1
                 }
                 val y = bg {
                     Thread.sleep(2000)
                     2
                 }
+                val z = bg {
+                    Thread.sleep(4000)
+                    4
+                }
 
                 toast("${x.await() + y.await()}")
-
-                delay(2000)
-
-                toast("${x.await() + y.await()}")
+                toast("${x.await() + z.await()}")
             }
         }
     }
