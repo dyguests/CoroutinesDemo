@@ -7,6 +7,7 @@ import kotlinx.android.synthetic.main.activity_compute.*
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.delay
 import kotlinx.coroutines.experimental.launch
+import org.jetbrains.anko.coroutines.experimental.bg
 import org.jetbrains.anko.toast
 
 class ComputeActivity : AppCompatActivity() {
@@ -18,15 +19,22 @@ class ComputeActivity : AppCompatActivity() {
         btn_compute.setOnClickListener {
             launch(UI) {
                 toast("start")
-                val x = getCoroutinesX()
-                val y = getCoroutinesX()
-                toast("${x + y}")
+
+                val x = bg {
+                    Thread.sleep(2000)
+                    1
+                }
+                val y = bg {
+                    Thread.sleep(2000)
+                    2
+                }
+
+                toast("${x.await() + y.await()}")
+
+                delay(2000)
+
+                toast("${x.await() + y.await()}")
             }
         }
-    }
-
-    private suspend fun getCoroutinesX(): Int {
-        delay(2000)
-        return 1
     }
 }

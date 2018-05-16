@@ -25,9 +25,4 @@ class CountdownActivity : AppCompatActivity() {
             hello.text = "Done!"
         }
     }
-
-    suspend fun doSomething(i: Int): Int {
-        Thread.sleep(1000)
-        return i * 2
-    }
 }
